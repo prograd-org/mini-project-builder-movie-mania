@@ -51,3 +51,18 @@ Setup a filter based on the movie year.
 
 
 Happy Coding ProGrads❤️
+
+https://api.themoviedb.org/3/movie/76341?api_key=<3482ad7cd87031c9dfe157cadf0c57ee>
+
+https://api.themoviedb.org/3/movie/550?api_key={3482ad7cd87031c9dfe157cadf0c57ee}&callback=test
+
+let url = `https://api.themoviedb.org/3/movie/popular?api_key=3482ad7cd87031c9dfe157cadf0c57ee&with_original_language=hi&page=1`
+
+https://api.themoviedb.org/3/movie/top_rated?api_key=3482ad7cd87031c9dfe157cadf0c57ee&language=hi-IN&page=1
+
+https://api.themoviedb.org/3/movie/497582/videos?api_key=3482ad7cd87031c9dfe157cadf0c57ee&language=en-US
+
+https://api.themoviedb.org/3/movie/76341?api_key=3482ad7cd87031c9dfe157cadf0c57ee&language=hi-IN
+
+
+https://api.themoviedb.org/3/movie/724989/videos?api_key=3482ad7cd87031c9dfe157cadf0c57ee&language=en-US
