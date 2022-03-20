@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>MoiveApp</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <span
+          ><i
+            style="color: white; font-size: 25px; padding: 10px"
+            class="fa fa-caret-square-o-right"
+          ></i></span
+        >MovieApp
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li class="sub-menu">
+            <a href="#">Language</a>
+            <ul>
+              <li><a id="eng" onclick="fetchMoviesByLanguage('en');">English</a></li>
+              <li><a id="hindi" onclick=" fetchMoviesByLanguage('hi');">Hindi</a></li>
+              <li><a id="telegu" onclick=" fetchMoviesByLanguage('te');">Telugu</a></li>
+              <li><a id="tamil" onclick=" fetchMoviesByLanguage('ta')">Tamil</a></li>
+              <li><a id="marathi" onclick=" fetchMoviesByLanguage('mr')">Marathi</a></li>
+            </ul>
+          </li>
+          <li><a id="popular" onclick=" popular();">Popular</a></li>
+          <li><a id="upcoming" onclick=" upcoming();">Upcoming</a></li>
+        </ul>
+      </nav>
+      <div class="menu-toggle">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </div>
+    </header>
+   
+      <div id="container" class="container"></div>
+
+      <div id="errorMsg" class="errorMsg"></div>
+    
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
