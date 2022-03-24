@@ -1,83 +1,48 @@
-//const apiKey= '699724c18ea997ccac810f2a678611h7';
-
-
-const imgUrl = "https://image.tmdb.org/t/p/a100";
-
-
-
-function popular() {
-  axios
-    .get(
-      "https://api.themoviedb.org/3/movie/popular?api_key=699724c18ea997ccac810f2a678644e5&language=en-US&page=1"
-    )
-    .then((res) => {
-      //console.log(res.data.results);
-      
-      var movies = res.data.results;
-      
-      movies.map(movie =>{
-        console.log(movie.id);
-      })
-     
-      getData(movies);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+function _(id) {
+  return document.querySelector(id);
 }
 
+let dropbotton = _(".navBar").childNodes;
+let dropflag = false;
 
-function upcoming() {
-  axios
-    .get(
-      "https://api.themoviedb.org/3/movie/upcoming?api_key=699724c18ea997ccac810f2a678644e5&language=en-US&page=1"
-    )
-    .then((res) => {
-      //console.log(res.data.results);
-      var movie = res.data.results;
-      getData(movie);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-}
-
-
-
-function fetchMoviesByLanguage(language) {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/upcoming?api_key=699724c18ea997ccac810f2a678644e5&with_original_language=${language}`
-      )
-      .then((res) => {
-        //console.log(res.data.results);
-        var movie = res.data.results;
-        getData(movie);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+dropbotton[5].addEventListener("click", () => {
+  if (dropflag) {
+      _(".dropDownList").style.opacity = "0";
+      dropflag = false;
+      _(".triangle").style.borderBottom = "solid 7px transparent";
+      _(".triangle").style.top = "1.5vh";
+      _(".triangle").style.borderTop = "solid 7px #fff";
+  } else {
+      _(".dropDownList").style.opacity = "1";
+      dropflag = true;
+      _(".triangle").style.borderBottom = "solid 7px #fff";
+      _(".triangle").style.top = "-1.5vh";
+      _(".triangle").style.borderTop = "solid 7px transparent";
   }
+})
 
-
-
-function getData(movie) {
-  var output = "";
-  movie.forEach(function (elem) {
-    // console.log(elem);
-    output += `<div class="grid">
-    <div class="movieDetail">
-    <img src=${imgUrl + elem.poster_path}>
-    <div class="text">
-    <h5>${elem.original_title}</h5>
-    <p>Released: ${elem.release_date}</p>
-    </div>
-    </div>
-    </div>`;
-  });
-  document.getElementById("container").innerHTML = output;
-}
-
-window.onload=()=>{
-  upcoming();
+function country(cid) {
+  const myNode = _(".main");
+  while (myNode.lastElementChild) {
+      myNode.removeChild(myNode.lastElementChild);
+  }
+  fetch(`https://newsapi.org/v2/top-headlines?country=${cid}&category=business&apiKey=e02ea5ef4c6849b386d97c6e17077f83`)
+      .then((response) => response.json())
+      .then((data) => {
+          console.log(data);
+          for (let i = 0; i < data.articles.length; i++) {
+              let template = document.createElement("div");
+              template.classList.add("template");
+              let img = document.createElement("img");
+              img.src = data.articles[i].urlToImage;
+              let head = document.createElement("h2");
+              head.textContent = data.articles[i].title;
+              let desc = document.createElement("p");
+              desc.textContent = data.articles[i].description;
+              let readbtn = document.createElement("button");
+              readbtn.textContent = "Read More...";
+              template.append(img, head, desc, readbtn);
+              _(".main").appendChild(template);
+          }
+      })
 }

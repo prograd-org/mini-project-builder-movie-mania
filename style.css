@@ -1,193 +1,80 @@
 *{
-    padding: 0;
-    margin: 0;
-    font-family: sans-serif;
-  }
-  
-  header{
-      position: absolute;
-      top: 0;
-      left: 0;
-      padding: 0 100px;
-      background: #262626;
-      width: 100%;
-      box-sizing: border-box;
-  }
-  
-  header .logo{
-      color: #fff;
-      height: 50px;
-      line-height: 50px;
-      font-size: 24px;
-      float: left;
-      font-weight: bold;
-  }
-  
-  header nav{
-      float: right;
-  }
-  
-  header nav ul{
-      margin: 0;
-      padding: 0;
-      display: flex;
-  }
-  
-  header nav ul li{
-      list-style: none;
-      position: relative;
-  }
-  
-  header nav ul li.sub-menu:before{
-   content: '\f0d7';
-   font-family: fontAwesome;
-   position: absolute;
-   line-height: 50px;
-   color: #fff;
-   right: 5px;
-  }
-  
-  header nav ul li.active.sub-menu:before{
-      content: '\f0d8';
-  
-  }
-  header nav ul li ul{
-      position: absolute;
-      left: 0;
-      background: #333;
-      display: none;
-  }
-  
-  header nav ul li:hover ul{
-      display: block;
-  }
-  
-  header nav ul li ul li{
-      display: block;
-      width: 200px;
-  }
-  
-  header nav ul li a{
-      height: 50px;
-      line-height: 50px;
-      padding: 0 20px;
-      color: #fff;
-      text-decoration: none;
-      display: block;
-  }
-  
-  header nav ul li a:hover,
-  header nav ul li a:active{
-      color: #fff;
-      background: black;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .menu-toggle{
-      color: #fff;
-      float: right;
-      line-height: 50px;
-      font-size: 24px;
-      cursor: pointer;
-      display: none;
-  }
-  
-  @media(max-width: 991px){
-      header{
-          padding: 0 20px;
-      }
-      .menu-toggle{
-  
-  position: absolute;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container{
+height: 100vh;
+width: 100vw;
+}
+.navBar{
+  display: flex;
   width: 100%;
-  height: 100%;
-  background: #333;
-  top: 50px;
-  left: -100%;
-  transition: 0.5s;
-      }
-  
-      header nav.active{
-          left: 0;
-      }
-      header nav ul{
-          display: block;
-          text-align: center;
-      }
-      header nav ul li a{
-      border-bottom: 1px solid rgba(0,0,0,0.2);
-      }
-  
-      header nav ul li:active ul{
-          position: relative;
-          background: black;
-      }
-  
-      header nav ul li ul li{
-          width: 100%;
-      }
-  }
-  
-  /* body part styling*/
-  .container{
-    display: grid;
-    grid-template-columns: repeat(3,28%);
-    grid-row-gap:25px;
-    grid-column-gap:35px;
-    background: white;
-    margin-top: 90px;
-    margin-left: 120px;
-  
-  }
-  
-  /*.grid{
-    
-  }*/
-  .movieDetail{
-    background: #eee5e9;
-    border: none;
-    box-shadow:2px 2px 6px 0px rgba(0,0,0,0.3) ;
-    border-radius: 5px;
-    text-align: center;
-    width: 250px;
-    transition: transform .3s;
-  }
-  
-  .movieDetail:hover{
-    transform: translateY(5px);
-    box-shadow: 2px 2px 26px 0px rgba(0,0,0,0.3);
-  }
-  
-  .movieDetail img{
-    width: 100%;
-    height: 100%;
-    border-top-left-radius:5px;
-    border-top-right-radius:5px;
-    }
-  
-  .text{
-    padding: 0 20px 20px;
-  }
-  
-  .text h5{
-    text-transform: uppercase;
-    padding-top: 5px;
-  }
-  
-  .text p{
-    padding-top: 5px;
-    color: grey;
-  }
-  
-  @media(max-width:768px){
-    .container{
-      grid-template-columns: repeat(1,1fr);
-      margin-top: 230px;
-      margin-left: 100px;
-    }
-  
-    .movieDetail{
-      text-align: center;
-    }
-  }
+  background-color: orangered;
+  height: 3.5rem;
+  align-items: center;
+  color: white;
+  font-size: large;
+}
+.triangle{
+border-left: solid 7px transparent;
+border-right: solid 7px transparent;
+border-top: solid 7px white;
+height: 0;
+width: 0;
+position: relative;
+top: 2vh;
+right: -1vh;
+transition: .5s ease;
+}
+
+.navBar p{
+margin: 0 2%;
+}
+.dropDownList{
+display: flex;
+position: absolute;
+left: 20rem;
+background: aliceblue;
+height: 7vh;
+flex-direction: column;
+font-size: larger;
+justify-content: space-around;
+transition: .5s ease-out;
+opacity: 0;
+}
+
+.dropDownList p:hover{
+transition: .3s cubic-bezier(1, 1, 1, 1);
+background: #007aff;
+color: aliceblue;
+}
+.main {
+position: relative;
+z-index: -1;
+display: grid;
+grid-template-columns: repeat(3, auto);
+grid-gap: 2% 6px;
+}
+
+.template {
+width: 30vw;
+}
+
+.template img {
+width: 100%;
+}
+
+.template p {
+color: #000000bd;
+}
+
+.template button {
+border: none;
+height: 5vh;
+width: 15vh;
+background: rgb(66, 134, 245);
+color: aliceblue;
+box-shadow: rgb(0 0 0 / 39%) 0px 2px 12px 2px;
+font-weight: 600;
+}
