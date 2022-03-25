@@ -1,54 +1,40 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <title>MoiveApp</title>
-  </head>
-  <body>
-    <header>
-      <div class="logo">
-        <span
-          ><i
-            style="color: white; font-size: 25px; padding: 10px"
-            class="fa fa-caret-square-o-right"
-          ></i></span
-        >MovieApp
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li class="sub-menu">
-            <a href="#">Language</a>
-            <ul>
-              <li><a id="eng" onclick="fetchMoviesByLanguage('en');">English</a></li>
-              <li><a id="hindi" onclick=" fetchMoviesByLanguage('hi');">Hindi</a></li>
-              <li><a id="telegu" onclick=" fetchMoviesByLanguage('te');">Telugu</a></li>
-              <li><a id="tamil" onclick=" fetchMoviesByLanguage('ta')">Tamil</a></li>
-              <li><a id="marathi" onclick=" fetchMoviesByLanguage('mr')">Marathi</a></li>
-            </ul>
-          </li>
-          <li><a id="popular" onclick=" popular();">Popular</a></li>
-          <li><a id="upcoming" onclick=" upcoming();">Upcoming</a></li>
-        </ul>
-      </nav>
-      <div class="menu-toggle">
-        <i class="fa fa-bars" aria-hidden="true"></i>
-      </div>
-    </header>
-   
-      <div id="container" class="container"></div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Mania</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
 
-      <div id="errorMsg" class="errorMsg"></div>
-    
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-    <script src="app.js"></script>
-  </body>
+<body>
+    <div class="container">
+        <div class="trailer">
+            <button onclick="closeTrailer()">Back</button>
+            <div class="screen">
+                <iframe src="" frameborder="0" id="trailer"></iframe>
+            </div>
+        </div>
+        <div class="head">
+            <div class="logo">
+                <i class="fas fa-film"></i><span> ProGrad</span>
+            </div>
+            <div class="right">
+                <select onchange="getMovies('',this.value)">
+                    <option value="en">English</option>
+                    <option value="hi">Hindi</option>
+                    <option value="ml">Malyalam</option>
+                    <option value="ta">Tamil</option>
+                    <option value="te">Telgu</option>
+                </select>
+                <p onclick="getMovies('now_playing','')">Now Playing</p>
+                <p onclick="getMovies('popular','')">Popular</p>
+                <p onclick="getMovies('upcoming','')">Upcoming</p>
+            </div>
+        </div>
+        <div class="main"></div></div>
+        <script src="./app.js"></script>
+</body>
 </html>
