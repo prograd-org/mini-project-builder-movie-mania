@@ -207,4 +207,4 @@ document.querySelector("#upcoming").onclick=()=>{
 //Defaulty the popular movies get loaded into the home page
 window.onload = () => {
   loadPopularOrUpcomingOrTopRatedMovies("Popular", "https://api.themoviedb.org/3/movie/popular?api_key=6ce93bc5ff54bdbf126d3a288d7b7c88&language=en-US&page=1")
-}
+} 
